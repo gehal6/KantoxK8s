@@ -23,6 +23,9 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: "kantox"
 
+podAnnotations:
+      argocd-image-updater.argoproj.io/write-back-method: argocd
+      argocd-image-updater.argoproj.io/image-list: kantox-dev=gehal6/kantoxapp:latest
 
 podSecurityContext: {}
   # fsGroup: 2000
