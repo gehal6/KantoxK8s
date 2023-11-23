@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  {{- with .Values.kantox.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
+  name: {{ .Values.kantox.service.name }}
+  labels:
+    {{- include "kantox-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "kantox-chart.selectorLabels" . | nindent 4 }}
