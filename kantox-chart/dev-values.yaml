@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: 572199075108.dkr.ecr.eu-central-1.amazonaws.com/kantoxk8sdev
+  repository: gehal6/kantoxapp:latest
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
